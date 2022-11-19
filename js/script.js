@@ -9,7 +9,9 @@ var typed = new Typed (".typing",{
 // Aside
 const nav = document.querySelector(".nav"),
   navList =nav.querySelectorAll("li"),
-  totalNavList = navList.length
+  totalNavList = navList.length,
+  allsection =document.querySelectorAll(".section"),
+  totalSection =allsection.length;
   for(let i=0; i<totalNavList; i++)
   {
    const  a = navList[i].querySelector("a");
@@ -20,6 +22,12 @@ const nav = document.querySelector(".nav"),
         navList[j].querySelector("a").classList.remove("active");
     }
     this.classList.add("active")
+    showSection(this);
 
    })
+  }
+  function showSection(element)
+  {
+    const target =element.getAtribute("href").split("#")[1];
+    document.querySelector("#" + target).classList.add("active")
   }
