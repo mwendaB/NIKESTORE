@@ -51,9 +51,22 @@ ul{
     overflow-y: auto;
     overflow-x: hidden;
 }
+.section.back-section{
+    z-index: 1;
+}
 .section.active{
     z-index: 2;
     opacity: 1;
+    animation: slideSection 1s ease;
+}
+@keyframes slideSection {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+    
 }
 .hidden{
     display: none !important; 
@@ -677,8 +690,18 @@ input:focus{
     .aside{
         left: -270px;
     }
-    .main-content{
-        padding-left: 0;
+    .aside.open{
+        left: 0;
+    }
+    .aside .nav-toggler{
+        display: flex;
+        left: 30px;
+    }
+    .aside .nav-toggler.open{
+        left: 300px;
+    }
+    .section{
+        left: 0;
     }
     .about .about-content .personal-info .info-item p span{
          display: block;
